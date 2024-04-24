@@ -30,7 +30,7 @@ resources:
     DemoQueue:
       Type: "AWS::SQS::Queue"
       Properties:
-        QueueName: DemoQueue
+        QueueName: !Sub ${self:service}-demo-queue
         DelaySeconds: 0
         MessageRetentionPeriod: 345600
         VisibilityTimeout: 30
@@ -43,7 +43,7 @@ resources:
     DeadLetterQueue:
       Type: AWS::SQS::Queue
       Properties:
-        QueueName: dlq
+        QueueName: !Sub ${self:service}-demo-dlqueue
   Outputs:
     sqsArn:
       Value: !GetAtt DemoQueue.Arn

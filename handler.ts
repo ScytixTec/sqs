@@ -9,7 +9,7 @@ import {
 
 import { config } from "./config";
 
-export const sendMessage = async (event: SQSEvent) => {
+export const sendMessage = async (): Promise<void> => {
   try {
     const client = new SQSClient({
       region: "eu-central-1",
