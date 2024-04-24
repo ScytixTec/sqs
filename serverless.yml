@@ -1,5 +1,5 @@
 
-service: serverlesssqs
+service: serverless-sqs
 
 frameworkVersion: "3"
 
@@ -21,6 +21,10 @@ provider:
 plugins:
   - serverless-esbuild
 
+package:
+  patterns:
+    - config.yml
+    
 resources:
   Resources:
     DemoQueue:

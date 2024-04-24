@@ -1,5 +1,5 @@
 "use strict";
-const { SQSClient, SendMessageCommand } = require("@aws-sdk/client-sqs");
+import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs";
 import {
   SQSEvent,
   SQSBatchResponse,
