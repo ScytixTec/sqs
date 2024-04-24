@@ -22,13 +22,6 @@ export const sendMessage = async (event: SQSEvent) => {
 
       await client.send(sendMessageCommand);
     }
-
-    const sendMessageCommand = new SendMessageCommand({
-      QueueUrl: "https://sqs.eu-central-1.amazonaws.com/457989622830/DemoQueue",
-      MessageBody: JSON.stringify({ id: 101, error: `error` }),
-    });
-
-    await client.send(sendMessageCommand);
     console.log("Message sent");
   } catch (error) {
     console.error("Error sending messages:", error);
