@@ -3,7 +3,7 @@ import fs from "node:fs";
 import yaml from "yaml";
 
 const ConfigSchema = z.object({
-  QueueUrl: z.string().url(),
+  queueUrl: z.string().url(),
 });
 
 export const config = ConfigSchema.parse({

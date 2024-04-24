@@ -7,6 +7,8 @@ import {
   SQSRecord,
 } from "aws-lambda";
 
+import { config } from "./config";
+
 export const sendMessage = async (event: SQSEvent) => {
   try {
     const client = new SQSClient({
@@ -15,7 +17,7 @@ export const sendMessage = async (event: SQSEvent) => {
 
     for (let i = 0; i < 100; i++) {
       const sendMessageCommand = new SendMessageCommand({
-        QueueUrl: "https://sqs.eu-central-1.amazonaws.com/457989622830/DemoQueue",
+        QueueUrl: config.queueUrl,
         MessageBody: JSON.stringify({ id: i, message: `Message ${i}` }),
       });
 
@@ -23,7 +25,7 @@ export const sendMessage = async (event: SQSEvent) => {
     }
 
     const sendMessageCommand = new SendMessageCommand({
-      QueueUrl: "https://sqs.eu-central-1.amazonaws.com/457989622830/DemoQueue",
+      QueueUrl: config.queueUrl,
       MessageBody: JSON.stringify({ id: 1, error: `Message error` }),
     });
 
